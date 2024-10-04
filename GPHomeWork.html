@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="GPHomeWork.js"></script>
+    <link rel="stylesheet" href="GPHomeWork.css">
+    <title>Javascript HomeWork GAU GP</title>
+</head>
+<body>
+    <p id="p1">Hello, welcome to the world of future...</p>
+    <button onclick="TextStyle1()">Click me for functionality!</button>
+
+    <h1>Sum of Two Numbers</h1>
+    <label for="num1">Enter first number:</label>
+    <input type="number" id="num1" required>
+    <label for="num2">Enter second number:</label>
+    <input type="number" id="num2" required>   
+    <button onclick="CalculateSum()">Calculate Sum</button>
+    <p id="sumnum"></p>
+
+    <h1>Change Text Size</h1>
+    <label for="textInput">Enter your text:</label>
+    <input type="text" id="textInput" required>
+    <label for="fontSize">Enter font size (px):</label>
+    <input type="number" id="fontSize" required>
+    <button onclick="changeTextSize()">Change Text Size</button>
+    <p id="displayText"></p>
+
+    <h1>2x2 Table Generator</h1>
+    <label for="width">Enter table width (px):</label>
+    <input type="number" id="width" required>
+    <button onclick="generateTable()">Generate Table</button>
+    <div id="tableContainer"></div>
+
+    <h1>2x2 Table Generator V2</h1>
+    <label for="inputWidth">Enter table width (px):</label>
+    <input type="number" id="inputWidth" required>
+    <label for="inputHeight">Enter table height (px):</label>
+    <input type="number" id="inputHeight" required>
+    <button onclick="createTable()">Generate Table</button>
+    <div id="tableDisplay"></div>
+
+    <h1>2x2 Table Customizer</h1>
+    <label for="bgColor">Enter background color:</label>
+    <input type="text" id="bgColor" required>
+    <label for="borderThickness">Enter border thickness (px):</label>
+    <input type="number" id="borderThickness" required>
+    <label for="customWidth">Enter table width (px):</label>
+    <input type="number" id="customWidth" required>
+    <label for="customHeight">Enter table height (px):</label>
+    <input type="number" id="customHeight" required>
+    <button onclick="generateCustomTable()">Generate Table</button>
+    <div id="tableOutput"></div>
+
+    <h1>Customizable Table Generator</h1>
+    <label for="rowCount">Enter number of rows:</label>
+    <input type="number" id="rowCount" required>
+    <label for="colCount">Enter number of columns:</label>
+    <input type="number" id="colCount" required>
+    <label for="tableWidth">Enter table width (px):</label>
+    <input type="number" id="tableWidth" required>
+    <label for="tableHeight">Enter table height (px):</label>
+    <input type="number" id="tableHeight" required>
+    <label for="bgColor">Enter background color:</label>
+    <input type="text" id="bgColor" required>
+    <label for="borderThickness">Enter border thickness (px):</label>
+    <input type="number" id="borderThickness" required>
+    <button onclick="createCustomTable()">Generate Table</button>
+    <div id="tableContainer"></div>
+</body>
+</html>

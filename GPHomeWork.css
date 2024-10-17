@@ -1,0 +1,9 @@
+textarea {
+    width: 50%;
+    height: 150px;
+    position: relative;
+    display: block;
+    resize: none;
+    margin: 5%;
+    padding: 5%;
+}

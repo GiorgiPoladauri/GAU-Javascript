@@ -1,2 +1,2 @@
 # GAU
-Giorgi Poladauri Javascript GAU Programming files
+Giorgi Poladauri GAU Javascript Programming files

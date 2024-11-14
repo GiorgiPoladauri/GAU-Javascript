@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Work VI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .container {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .clock {
+            font-size: 3em;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e9e9e9;
+            border-left: 5px solid #007BFF;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Class Work – VI</h1>
+
+    <div class="container">
+        <h2>1. დიალოგური ფანჯარა alert</h2>
+        <button onclick="showAlert()">Show Alert</button>
+        <div class="output" id="alertOutput"></div>
+    </div>
+
+    <div class="container">
+        <h2>2. დიალოგური ფანჯარა confirm</h2>
+        <button onclick="showConfirm()">Show Confirm</button>
+        <div class="output" id="confirmOutput"></div>
+    </div>
+
+    <div class="container">
+        <h2>3. დიალოგური ფანჯარა prompt</h2>
+        <button onclick="showPrompt()">Show Prompt</button>
+        <div class="output" id="promptOutput"></div>
+    </div>
+
+    <div class="container">
+        <h2>4. გამოთვალეთ მიმდინარე წელი, თვე, რიცხვი, კვირის დღე, საათი, წუთი, წამი, მილიწამი</h2>
+        <button onclick="showDateTime()">Show Date & Time</button>
+        <div class="output" id="dateTimeOutput"></div>
+    </div>
+
+    <div class="container">
+        <h2>5. ელექტორნული საათი</h2>
+        <div class="clock" id="clock">00:00:00</div>
+    </div>
+
+    <div class="container">
+        <h2>6. გაანგარიშეთ დღეები, საათები, წუთები, წამები 2016 წლის 1 იანვრიდან დღემდე</h2>
+        <button onclick="calculateTimeDifference()">Calculate Time Difference</button>
+        <div class="output" id="timeDifferenceOutput"></div>
+    </div>
+
+    <script>
+        // 1. Alert Example
+        function showAlert() {
+            alert("This is an alert message HALLO !");
+            document.getElementById("alertOutput").innerText = "Alert shown!";
+        }
+
+        // 2. Confirm Example
+        function showConfirm() {
+            if (confirm("Do you want to continue?")) {
+                document.getElementById("confirmOutput").innerText = "You clicked OK!";
+            } else {
+                document.getElementById("confirmOutput").innerText = "You clicked Cancel!";
+            }
+        }
+
+        // 3. Prompt Example
+        function showPrompt() {
+            let dayNumber = prompt("Enter a number between 1 and 7 for the day of the week:");
+            if (dayNumber !== null) {
+                dayNumber = parseInt(dayNumber);
+                if (dayNumber >= 1 && dayNumber <= 7) {
+                    document.getElementById("promptOutput").innerText = `You selected day number: ${dayNumber}`;
+                } else {
+                    document.getElementById("promptOutput").innerText = "Invalid number! Enter a number between 1 and 7.";
+                }
+            } else {
+                document.getElementById("promptOutput").innerText = "You clicked Cancel.";
+            }
+        }
+
+        // 4. Show Current Date & Time
+        function showDateTime() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1;
+            const day = now.getDate();
+            const dayOfWeek = now.getDay(); // 0 is Sunday, 6 is Saturday
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const second = now.getSeconds();
+            const millisecond = now.getMilliseconds();
+
+            const output = `Year: ${year}\nMonth: ${month}\nDay: ${day}\nDay of the Week: ${dayOfWeek}\nHour: ${hour}\nMinute: ${minute}\nSecond: ${second}\nMillisecond: ${millisecond}`;
+            document.getElementById("dateTimeOutput").innerText = output;
+        }
+
+        // 5. Digital Clock
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById("clock").innerText = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+
+        // 6. Calculate Time Difference (from 2016-01-01)
+        function calculateTimeDifference() {
+            const startDate = new Date("2016-01-01T00:00:00");
+            const currentDate = new Date();
+            const timeDifference = currentDate - startDate;
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            const output = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds have passed since January 1, 2016.`;
+            document.getElementById("timeDifferenceOutput").innerText = output;
+        }
+    </script>
+  // დავალება გაკეთებულია 1 ფაილში...
+</body>
+</html>

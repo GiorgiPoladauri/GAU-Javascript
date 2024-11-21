@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Square Movement GP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #game-area {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            background-color: white;
+            border: 2px solid black;
+        }
+        #square {
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            position: absolute;
+            top: 125px;
+            left: 125px;
+        }
+        #controls {
+            margin-top: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            border-radius: 24px;
+            background-color: aqua;
+            transition: 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="name">
+        <h1>Welcome to moving SQUARE !</h1>
+        <p>MADE BY GP</p>
+    </div>
+    <div id="game-area">
+        <div id="square"></div>
+    </div>
+    <div id="controls">
+        <button onclick="moveUp()">Up</button>
+        <button onclick="moveLeft()">Left</button>
+        <button onclick="moveDown()">Down</button>
+        <button onclick="moveRight()">Right</button>
+    </div>
+
+    <script>
+        const square = document.getElementById('square');
+        let topPosition = 125;
+        let leftPosition = 125;
+
+        function moveUp() {
+            if (topPosition > 0) {
+                topPosition -= 10;
+                square.style.top = topPosition + 'px';
+            }
+        }
+
+        function moveDown() {
+            if (topPosition < 250) {
+                topPosition += 10;
+                square.style.top = topPosition + 'px';
+            }
+        }
+
+        function moveLeft() {
+            if (leftPosition > 0) {
+                leftPosition -= 10;
+                square.style.left = leftPosition + 'px';
+            }
+        }
+
+        function moveRight() {
+            if (leftPosition < 250) {
+                leftPosition += 10;
+                square.style.left = leftPosition + 'px';
+            }
+        }
+    </script>
+</body>
+</html>

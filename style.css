@@ -11,6 +11,19 @@ body {
     color: #ffffff;
 }
 
+.button1 {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    opacity: 0.5;
+    border-radius: 24px;
+}
+
+.button1:hover {
+    transition: 0.5s;
+    opacity: 1;
+    padding: 1%;
+}
+
 .img1:hover {
     transform: scale(0.8);
     opacity: 0.8;  

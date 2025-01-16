@@ -21,7 +21,6 @@ setInterval(changeSlide, 6000);
 
 changeSlide(); 
 
-
 ///
 
 let currentLanguage = 'en';
@@ -47,6 +46,19 @@ const toggleLanguage = () => {
 window.onload = () => {
     changeLanguage(currentLanguage);
 };
+
+///
+
+function copyLink() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url) 
+        .then(() => {
+            alert('Link copied to clipboard!');
+        })
+        .catch(err => {
+            console.error('Error copying link: ', err);
+        });
+}
 
 ///
 

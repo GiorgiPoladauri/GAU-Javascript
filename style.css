@@ -16,12 +16,13 @@ body {
     color: #ffffff;
     opacity: 0.5;
     border-radius: 24px;
+    padding: 2%;
 }
 
 .button1:hover {
-    transition: 0.5s;
+    transition: 1s;
     opacity: 1;
-    padding: 1%;
+    padding: 5%;
 }
 
 .img1:hover {

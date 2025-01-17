@@ -92,3 +92,27 @@ body {
     width: 30%;
     z-index: 1;
 }
+
+@media screen and (max-width: 425px) {   
+    #text1,#text2,#text3,#text4,#text5 {
+        font-size: xx-small;
+    }
+    .subdiv1 {
+        text-align: center;
+    }
+    #h4one {
+        font-size: x-small;
+    }
+}
+
+@media screen and (max-width: 768px) {   
+    #text1,#text2,#text3,#text4,#text5 {
+        font-size: x-small;
+    }
+    .subdiv1 {
+        text-align: center;
+    }
+    #h4one {
+        font-size: small;
+    }
+}

@@ -1,17 +1,19 @@
+let users = [];
+
 document.addEventListener("DOMContentLoaded", function () {
-    RegForm = document.querySelector(".form1");
-    LogForm = document.querySelector(".form2");
+    const RegForm = document.querySelector(".form1");
+    const LogForm = document.querySelector(".form2");
 
-    RegEmail = document.getElementById("i1");
-    RegNickname = document.getElementById("i2");
-    RegPassword = document.getElementById("i3");
-    RegConfirmedPassword = document.getElementById("i4");
-    RegCountry = document.getElementById("i5");
-    RegCity = document.getElementById("i6");
-    RegPhone = document.getElementById("i7");
+    const RegEmail = document.getElementById("i1");
+    const RegNickname = document.getElementById("i2");
+    const RegPassword = document.getElementById("i3");
+    const RegConfirmedPassword = document.getElementById("i4");
+    const RegCountry = document.getElementById("i5");
+    const RegCity = document.getElementById("i6");
+    const RegPhone = document.getElementById("i7");
 
-    LogEmail = document.getElementById("i8");
-    LogPassword = document.getElementById("i9");
+    const LogEmail = document.getElementById("i8");
+    const LogPassword = document.getElementById("i9");
 
     function CheckPasswordStrength(password) {
         if (password.match(/[A-Z]/) && password.match(/[a-z]/) && password.match(/[0-9]/)) {
@@ -35,8 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     RegForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        errors = [];
-        if (!RegEmail.value.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/)) {
+        let errors = [];
+        if (!RegEmail.value.match(/^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/)) {
             errors.push("Please enter a valid email.");
         }        
         if (RegNickname.value.trim() === "") {
@@ -61,23 +63,36 @@ document.addEventListener("DOMContentLoaded", function () {
         if (errors.length > 0) {
             alert("Please fix these errors:\n" + errors.join("\n"));
         } else {
+            users.push({
+                email: RegEmail.value,
+                nickname: RegNickname.value,
+                password: RegPassword.value,
+                country: RegCountry.value,
+                city: RegCity.value,
+                phone: RegPhone.value
+            });
+
             alert("Registration successful!");
-            document.getElementById("h4one").textContent = "Welcome, " + RegEmail.value;
             RegForm.reset();
         }
     });
 
     LogForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        if (!LogEmail.value.includes("@")) {
-            alert("Enter a valid email.");
-        } 
-        else if (LogPassword.value.trim() === "") {
-            alert("Password cannot be empty.");
-        } 
-        else {
-            alert("Login successful!");
-            LogForm.reset();
+        var user = null;
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].email === LogEmail.value && users[i].password === LogPassword.value) {
+                user = users[i];
+                break;
+            }
+        }
+
+        if (user) {
+            alert("Login successful! Welcome, " + user.nickname);
+            document.getElementById("h4one").textContent = "Welcome, " + user.nickname;
+        } else {
+            alert("Invalid credentials.");
         }
     });
+    
 });
